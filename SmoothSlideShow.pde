@@ -8,10 +8,10 @@
  */
 
 // All fades take this long
-int fadeMillis = 2500;
+int fadeMillis = 3000;
 // Dwell time min and max (between fades)
 int dwellMin = 6000;
-int dwellMax = 12000;
+int dwellMax = 13000;
 
 long minImgSize = 999999999;
 long maxImgSize = 10;
@@ -276,8 +276,9 @@ void draw() {
       mustSetBlends = false;
     }
     
-    // set the blend factor
+    // set the blend factor (b goes from 0 to 1)
     float b = (timeNow - beginFadeAt) / float(endFadeAt - beginFadeAt);
+    b = 0.5-0.5*cos(b*3.1415927);
     float oob = 1.0 - b;
     
     // and then blend the two images over it - dammit
