@@ -8,10 +8,10 @@
  */
 
 // All fades take this long
-int fadeMillis = 3000;
+int fadeMillis = 5000;
 // Dwell time min and max (between fades)
-int dwellMin = 6000;
-int dwellMax = 13000;
+int dwellMin = 7000;
+int dwellMax = 14000;
 
 long minImgSize = 999999999;
 long maxImgSize = 10;
@@ -282,6 +282,7 @@ void draw() {
     float oob = 1.0 - b;
     
     // and then blend the two images over it - dammit
+    /*
     loadPixels();
     curr.blend.loadPixels();
     next.blend.loadPixels();
@@ -297,6 +298,12 @@ void draw() {
       pixels[i] = color((oob*cr+b*nr), (oob*cg+b*ng), (oob*cb+b*nb));
     }
     updatePixels();
+    */
+    
+    noTint();
+    image(curr.blend, 0, 0);
+    tint(255,int(256*b));
+    image(next.blend, 0, 0);
   }
   
   if (timeNow > endFadeAt) {
