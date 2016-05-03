@@ -282,6 +282,8 @@ void draw() {
     float oob = 1.0 - b;
     
     // and then blend the two images over it - dammit
+    
+    // this is a slow way
     /*
     loadPixels();
     curr.blend.loadPixels();
@@ -300,6 +302,7 @@ void draw() {
     updatePixels();
     */
     
+    // this is faster (but still not fast on a UHD monitor)
     noTint();
     image(curr.blend, 0, 0);
     tint(255,int(256*b));
