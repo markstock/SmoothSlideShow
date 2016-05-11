@@ -112,7 +112,7 @@ int endFadeAt = 0;
 
 void setup() {
   // use one of the following two statements
-  fullScreen();
+  fullScreen(P2D);
   //size(800,600);
   
   frameRate(30);
